@@ -23,7 +23,7 @@ public class ConsultaController {
     public ResponseEntity reservar(@RequestBody @Valid DatosReservaConsulta datos){
         reserva.reservar(datos);
 
-        System.out.println(datos);
+
         return ResponseEntity.ok(new DatosDetalleConsulta(null,null,null,null));
     }
 }
