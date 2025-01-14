@@ -12,7 +12,7 @@ import med.voll.api.domain.direccion.Direccion;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Entity
+@Entity(name = "Medico")
 @Table(name = "medicos")
 public class Medico {
     @Id
