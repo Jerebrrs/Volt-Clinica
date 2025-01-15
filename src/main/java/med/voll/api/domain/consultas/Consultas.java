@@ -1,7 +1,7 @@
 package med.voll.api.domain.consultas;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Future;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -36,6 +36,8 @@ public class Consultas {
     @Column(name = "motivo_cancelamiento")
     @Enumerated(EnumType.STRING)
     private MotivoCancelamiento motivoCancelamiento;
+
+
 
     public void cancelar(MotivoCancelamiento motivo) {
         this.motivoCancelamiento = motivo;

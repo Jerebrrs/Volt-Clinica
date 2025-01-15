@@ -46,7 +46,7 @@ public class ReservaDeConsultas {
         var paciente = pacienteRepository.findById(datos.idPaciente()).get();
 
 
-        var consulta = new Consultas(null, medico, paciente, datos.fecha(), null);
+        var consulta = new Consultas(null,medico, paciente, datos.fecha(),null);
 
         consultaRepository.save(consulta);
         return new DatosDetalleConsulta(consulta);

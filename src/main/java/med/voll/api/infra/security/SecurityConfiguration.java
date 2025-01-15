@@ -21,10 +21,10 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable() // Deshabilitar CSRF para simplicidad (habilítalo en producción si es necesario)
+        http.csrf(csrf-> csrf.disable())
                 .authorizeHttpRequests()
-                .requestMatchers("/login")
-                .permitAll() // Permitir acceso sin autenticación a /login
+                .requestMatchers("/login").permitAll()
+                .requestMatchers("/v3/api-docs/**","/swagger-ui.html","/swagger-ui/**").permitAll()
                 .anyRequest().authenticated() // Requiere autenticación para el resto de rutas
                 .and()
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
